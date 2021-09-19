@@ -2,7 +2,7 @@
   "name": "ce-discord-bot",
   "version": "1.0.0",
   "description": "The Cyber Empire's Discord Bot",
-  "main": "index.js",
+  "main": "built/index.js",
   "dependencies": {
     "@sapphire/framework": "^2.0.0-next.71c18830.0",
     "@sapphire/ts-config": "^3.0.0",
@@ -46,7 +46,9 @@
     "ws": "^7.5.4"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run start",
+    "start": "npm run build && node .",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",

@@ -3,3 +3,6 @@ node_modules
 
 # Ignore secrets
 .env
+
+# Ignore build directory
+built
