@@ -4,12 +4,17 @@ import { Message, MessageEmbed, User } from 'discord.js';
 function makeUnbanEmbed(
 	author: User,
 	user: User,
-	reason: string
+	reason: string,
+	worked: boolean
 ): MessageEmbed {
+	const message = worked
+		? `**${user.tag} has been unbanned.**`
+		: `**${user.tag} isn't banned.**`;
+
 	const embed = new MessageEmbed()
-		.setColor('GREEN')
+		.setColor(worked ? 'GREEN' : 'YELLOW')
 		.setAuthor(`Unbanned by ${author.tag}`, author.displayAvatarURL())
-		.setTitle(`**${user.tag} has been unbanned.**`)
+		.setTitle(message)
 		.setDescription(`**Reason:** ${reason}`)
 		.setThumbnail(user.displayAvatarURL())
 		.setTimestamp(Date.now());
@@ -35,8 +40,12 @@ class PingCommand extends Command {
 		const embeds: MessageEmbed[] = [];
 
 		for (const u of users) {
-			embeds.push(makeUnbanEmbed(message.author, u, reason));
-			await message.guild?.members.unban(u);
+			if (await message.guild?.bans.fetch(u).catch(() => false)) {
+				embeds.push(makeUnbanEmbed(message.author, u, reason, true));
+				await message.guild?.members.unban(u);
+			} else {
+				embeds.push(makeUnbanEmbed(message.author, u, reason, false));
+			}
 		}
 
 		message.reply({ embeds });
