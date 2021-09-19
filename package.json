@@ -4,9 +4,9 @@
   "description": "The Cyber Empire's Discord Bot",
   "main": "built/index.js",
   "dependencies": {
+    "@sapphire/eslint-config": "^3.2.3",
     "@sapphire/framework": "^2.0.0-next.71c18830.0",
     "@sapphire/ts-config": "^3.0.0",
-    "typescript": "^4.4.3",
     "abort-controller": "^3.0.0",
     "ansi-styles": "^4.3.0",
     "asynckit": "^0.4.0",
@@ -42,6 +42,7 @@
     "ts-mixer": "^6.0.0",
     "tslib": "^2.3.1",
     "type-fest": "^1.4.0",
+    "typescript": "^4.4.3",
     "vali-date": "^1.0.0",
     "ws": "^7.5.4"
   },
@@ -59,5 +60,8 @@
   "bugs": {
     "url": "https://github.com/Caesarovich/ce-discord-bot/issues"
   },
-  "homepage": "https://github.com/Caesarovich/ce-discord-bot#readme"
+  "homepage": "https://github.com/Caesarovich/ce-discord-bot#readme",
+  "eslintConfig": {
+    "extends": "@sapphire"
+  }
 }

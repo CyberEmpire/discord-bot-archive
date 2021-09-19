@@ -1,7 +1,7 @@
-const { SapphireClient } = require('@sapphire/framework');
+import { SapphireClient } from '@sapphire/framework';
 
 const client = new SapphireClient({
-  intents: ['GUILDS', 'GUILD_MESSAGES'],
+	intents: ['GUILDS', 'GUILD_MESSAGES'],
 });
 
-client.login('token');
+client.login('token').catch(console.error);
