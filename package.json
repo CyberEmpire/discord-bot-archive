@@ -47,9 +47,11 @@
 		"ws": "^7.5.4"
 	},
 	"scripts": {
-		"test": "npm run start",
-		"start": "npm run build && node .",
-		"build": "tsc"
+		"test": "npm run rebuild && npm run start",
+		"start": "node .",
+		"build": "tsc",
+		"rebuild": "npm run clean && npm run build",
+		"clean": "rm -rf built"
 	},
 	"repository": {
 		"type": "git",
