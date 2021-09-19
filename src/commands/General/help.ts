@@ -82,7 +82,7 @@ function makeHelpEmbed(command: Command): MessageEmbed {
 	return embed;
 }
 
-class HelpCommand extends Command {
+export class HelpCommand extends Command {
 	constructor(context: PieceContext) {
 		super(context, {
 			name: 'Help',
@@ -112,5 +112,3 @@ class HelpCommand extends Command {
 		}
 	}
 }
-
-export default HelpCommand;

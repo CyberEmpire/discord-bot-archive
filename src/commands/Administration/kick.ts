@@ -32,7 +32,7 @@ function makeKickEmbed(
 	return embed;
 }
 
-class PingCommand extends Command {
+export class KickCommand extends Command {
 	constructor(context: PieceContext) {
 		super(context, {
 			name: 'Kick',
@@ -57,5 +57,3 @@ class PingCommand extends Command {
 		message.reply({ embeds });
 	}
 }
-
-export default PingCommand;

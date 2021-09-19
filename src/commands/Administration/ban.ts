@@ -32,7 +32,7 @@ function makeBanEmbed(
 	return embed;
 }
 
-class PingCommand extends Command {
+export class BanCommand extends Command {
 	constructor(context: PieceContext) {
 		super(context, {
 			name: 'Ban',
@@ -57,5 +57,3 @@ class PingCommand extends Command {
 		message.reply({ embeds });
 	}
 }
-
-export default PingCommand;

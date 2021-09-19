@@ -22,7 +22,7 @@ function makeUnbanEmbed(
 	return embed;
 }
 
-class PingCommand extends Command {
+export class UnbanCommand extends Command {
 	constructor(context: PieceContext) {
 		super(context, {
 			name: 'Unban',
@@ -51,5 +51,3 @@ class PingCommand extends Command {
 		message.reply({ embeds });
 	}
 }
-
-export default PingCommand;
