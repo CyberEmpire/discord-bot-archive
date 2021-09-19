@@ -47,7 +47,8 @@
 		"ws": "^7.5.4"
 	},
 	"scripts": {
-		"test": "npm run rebuild && npm run start",
+		"test": "npm run check-format && npm run rebuild && npm run start",
+		"check-format": "prettier -c src/*",
 		"start": "node .",
 		"build": "tsc",
 		"rebuild": "npm run clean && npm run build",
