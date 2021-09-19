@@ -1,0 +1,5 @@
+# Ignore local installations
+node_modules
+
+# Ignore secrets
+.env
