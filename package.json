@@ -5,6 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "@sapphire/framework": "^2.0.0-next.71c18830.0",
+    "@sapphire/ts-config": "^3.0.0",
+    "typescript": "^4.4.3",
     "abort-controller": "^3.0.0",
     "ansi-styles": "^4.3.0",
     "asynckit": "^0.4.0",
