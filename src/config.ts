@@ -23,6 +23,8 @@ const config: Configuration = {
 		token: env.BOT_TOKEN_DEV as string,
 		clientOptions: {
 			// Enable all intents
+			defaultPrefix: '!',
+			caseInsensitiveCommands: true,
 			intents: Object.values(Intents.FLAGS).reduce((a, b) => a + b),
 		},
 	},
