@@ -36,7 +36,7 @@ class PingCommand extends Command {
 	constructor(context: PieceContext) {
 		super(context, {
 			name: 'Kick',
-			description: 'Kick a member from your guild.',
+			description: 'Kick members from your guild.',
 			detailedDescription: '{[Members]} (Reason)',
 			requiredClientPermissions: ['KICK_MEMBERS'],
 			requiredUserPermissions: ['KICK_MEMBERS'],

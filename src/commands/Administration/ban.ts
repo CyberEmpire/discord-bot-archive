@@ -23,7 +23,7 @@ function makeBanEmbed(
 
 	const embed = new MessageEmbed()
 		.setColor(member.bannable ? 'RED' : 'AQUA')
-		.setAuthor(`banned by ${author.tag}`, author.displayAvatarURL())
+		.setAuthor(`Banned by ${author.tag}`, author.displayAvatarURL())
 		.setTitle(message)
 		.setDescription(`**Reason:** ${reason}`)
 		.setThumbnail(member.user.displayAvatarURL())
@@ -36,7 +36,7 @@ class PingCommand extends Command {
 	constructor(context: PieceContext) {
 		super(context, {
 			name: 'Ban',
-			description: 'Ban a member from your guild.',
+			description: 'Ban members from your guild.',
 			detailedDescription: '{[Members]} (Reason)',
 			requiredClientPermissions: ['BAN_MEMBERS'],
 			requiredUserPermissions: ['BAN_MEMBERS'],
