@@ -1,5 +1,15 @@
 import { Args, Command, CommandStore, PieceContext } from '@sapphire/framework';
-import { Message, MessageEmbed } from 'discord.js';
+import { Client, Message, MessageEmbed } from 'discord.js';
+
+function getPrefix(client: Client): string {
+	if (client.options.defaultPrefix) {
+		if (typeof client.options.defaultPrefix === 'string') {
+			return client.options.defaultPrefix;
+		}
+		return client.options.defaultPrefix[0];
+	}
+	return '!';
+}
 
 function sortCommands(commands: CommandStore): Map<string, Array<Command>> {
 	const categories: Map<string, Array<Command>> = new Map();
@@ -52,11 +62,21 @@ function makeHelpEmbed(command: Command): MessageEmbed {
 		.setAuthor(command.category ?? 'No category')
 		.setTitle(command.name)
 		.setDescription(command.description)
-		.setColor('#00df11');
+		.setColor('#00df11')
+		.setFooter('Arguments: {} = Required | () = Optionnal | [] = List');
+
+	if (command.detailedDescription) {
+		embed.addField(
+			'Usage:',
+			`**${getPrefix(command.container.client) + command.name}** ${
+				command.detailedDescription
+			}`
+		);
+	}
 
 	if (command.aliases) {
 		const aliases = command.aliases.map((a) => `\`${a}\``);
-		embed.addField('Aliases', aliases.join(', '));
+		embed.addField('Aliases:', aliases.join(', '));
 	}
 
 	return embed;
@@ -68,12 +88,15 @@ class HelpCommand extends Command {
 			name: 'Help',
 			aliases: ['h'],
 			description: 'Display help for commands.',
+			detailedDescription: '(Command)',
 		});
 	}
 
 	async run(message: Message, args: Args) {
 		const commands = this.container.stores.get('commands');
 		let arg = args.finished ? null : await args.pick('string');
+
+		this.container.client.options.defaultPrefix;
 
 		if (arg) {
 			const cmd = commands.get(arg);
