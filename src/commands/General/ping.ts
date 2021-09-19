@@ -4,6 +4,7 @@ import type { Message } from 'discord.js';
 class PingCommand extends Command {
 	constructor(context: PieceContext) {
 		super(context, {
+			name: 'Ping',
 			aliases: ['pong'],
 			description: 'Tests the latency.',
 		});
