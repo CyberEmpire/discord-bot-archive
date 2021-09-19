@@ -74,7 +74,7 @@ function makeHelpEmbed(command: Command): MessageEmbed {
 		);
 	}
 
-	if (command.aliases) {
+	if (command.aliases.length > 0) {
 		const aliases = command.aliases.map((a) => `\`${a}\``);
 		embed.addField('Aliases:', aliases.join(', '));
 	}
