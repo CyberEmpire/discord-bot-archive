@@ -87,7 +87,8 @@ class HelpCommand extends Command {
 		super(context, {
 			name: 'Help',
 			aliases: ['h'],
-			description: 'Display help for commands.',
+			description:
+				'A command that lists all the commands or gives detailled informations about a specific command.',
 			detailedDescription: '(Command)',
 		});
 	}
