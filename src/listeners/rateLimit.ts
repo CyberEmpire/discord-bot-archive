@@ -1,8 +1,13 @@
-import { Listener, ListenerOptions, PieceContext } from '@sapphire/framework';
+import {
+	Events,
+	Listener,
+	ListenerOptions,
+	PieceContext,
+} from '@sapphire/framework';
 import { yellow } from 'chalk';
 import type { RateLimitData } from 'discord.js';
 
-export class RateLimitListener extends Listener {
+export class RateLimitListener extends Listener<typeof Events.RateLimit> {
 	public constructor(context: PieceContext, options?: ListenerOptions) {
 		super(context, {
 			...options,

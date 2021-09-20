@@ -1,8 +1,13 @@
-import { Listener, ListenerOptions, PieceContext } from '@sapphire/framework';
+import {
+	Events,
+	Listener,
+	ListenerOptions,
+	PieceContext,
+} from '@sapphire/framework';
 import { magentaBright } from 'chalk';
 import type { Client } from 'discord.js';
 
-export class ReadyListener extends Listener {
+export class ReadyListener extends Listener<typeof Events.ClientReady> {
 	public constructor(context: PieceContext, options?: ListenerOptions) {
 		super(context, {
 			...options,

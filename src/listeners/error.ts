@@ -1,6 +1,11 @@
-import { Listener, ListenerOptions, PieceContext } from '@sapphire/framework';
+import {
+	Events,
+	Listener,
+	ListenerOptions,
+	PieceContext,
+} from '@sapphire/framework';
 
-export class ErrorListener extends Listener {
+export class ErrorListener extends Listener<typeof Events.Error> {
 	public constructor(context: PieceContext, options?: ListenerOptions) {
 		super(context, {
 			...options,
