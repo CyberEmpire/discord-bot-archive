@@ -1,7 +1,7 @@
 import { Command, PieceContext } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
-class PingCommand extends Command {
+export class PingCommand extends Command {
 	constructor(context: PieceContext) {
 		super(context, {
 			name: 'Ping',
@@ -18,5 +18,3 @@ class PingCommand extends Command {
 		);
 	}
 }
-
-export default PingCommand;
