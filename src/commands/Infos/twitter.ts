@@ -10,8 +10,6 @@ export class TwitterCommand extends Command {
 	}
 
 	async run(message: Message) {
-		message.reply(
-			'▶️ Visit our awesome Twitter page https://twitter.com/TheCyberEmpire'
-		);
+		message.reply('▶️ Visit our awesome Twitter page https://twitter.com/TheCyberEmpire');
 	}
 }

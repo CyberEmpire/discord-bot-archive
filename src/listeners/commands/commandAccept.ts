@@ -7,9 +7,7 @@ import {
 } from '@sapphire/framework';
 import { magenta } from 'chalk';
 
-export class CommandAcceptListener extends Listener<
-	typeof Events.CommandAccepted
-> {
+export class CommandAcceptListener extends Listener<typeof Events.CommandAccepted> {
 	public constructor(context: PieceContext, options?: ListenerOptions) {
 		super(context, {
 			...options,
@@ -19,9 +17,7 @@ export class CommandAcceptListener extends Listener<
 
 	public run(data: CommandAcceptedPayload) {
 		this.container.client.logger.debug(
-			`Command ${data.command.name} accepted for ${magenta(
-				data.message.author.tag
-			)}.`
+			`Command ${data.command.name} accepted for ${magenta(data.message.author.tag)}.`
 		);
 	}
 }

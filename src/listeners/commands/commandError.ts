@@ -17,9 +17,7 @@ export class CommandErrorListener extends Listener<typeof Events.CommandError> {
 
 	public run(error: Error, data: CommandErrorPayload) {
 		this.container.client.logger.error(
-			`Command ${blue(data.command.name)} exited with error "${red(
-				error.name
-			)}: ${error.message}"`
+			`Command ${blue(data.command.name)} exited with error "${red(error.name)}: ${error.message}"`
 		);
 	}
 }

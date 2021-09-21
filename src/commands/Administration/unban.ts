@@ -1,15 +1,8 @@
 import { Args, Command, PieceContext } from '@sapphire/framework';
 import { Message, MessageEmbed, User } from 'discord.js';
 
-function makeUnbanEmbed(
-	author: User,
-	user: User,
-	reason: string,
-	worked: boolean
-): MessageEmbed {
-	const message = worked
-		? `**${user.tag} has been unbanned.**`
-		: `**${user.tag} isn't banned.**`;
+function makeUnbanEmbed(author: User, user: User, reason: string, worked: boolean): MessageEmbed {
+	const message = worked ? `**${user.tag} has been unbanned.**` : `**${user.tag} isn't banned.**`;
 
 	const embed = new MessageEmbed()
 		.setColor(worked ? 'GREEN' : 'YELLOW')

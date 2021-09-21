@@ -31,10 +31,7 @@ export class GuildInfosCommand extends Command {
 					`${message.guild.premiumTier} (${message.guild.premiumSubscriptionCount})`
 				)
 				.addField('__Creation Date:__', niceTime(message.guild.createdAt))
-				.addField(
-					'__System channel:__',
-					message.guild.systemChannel?.toString() ?? 'None'
-				);
+				.addField('__System channel:__', message.guild.systemChannel?.toString() ?? 'None');
 
 			message.reply({ embeds: [embed] });
 		}

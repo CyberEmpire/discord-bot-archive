@@ -29,10 +29,7 @@ export class UserInfosCommand extends Command {
 				.addField('User ID:', member.user.id, true)
 				.addField('Account Creation:', niceTime(member.user.createdAt))
 				.addField('Member Since', niceTime(member.joinedAt ?? new Date()))
-				.addField(
-					'Roles:',
-					member.roles.cache.map((role) => role.toString()).join(' ')
-				);
+				.addField('Roles:', member.roles.cache.map((role) => role.toString()).join(' '));
 
 			message.reply({ embeds: [embed] });
 		}

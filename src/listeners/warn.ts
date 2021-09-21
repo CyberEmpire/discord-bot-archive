@@ -1,9 +1,4 @@
-import {
-	Events,
-	Listener,
-	ListenerOptions,
-	PieceContext,
-} from '@sapphire/framework';
+import { Events, Listener, ListenerOptions, PieceContext } from '@sapphire/framework';
 
 export class WarnListener extends Listener<typeof Events.Warn> {
 	public constructor(context: PieceContext, options?: ListenerOptions) {

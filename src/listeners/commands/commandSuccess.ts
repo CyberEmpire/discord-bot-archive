@@ -7,9 +7,7 @@ import {
 } from '@sapphire/framework';
 import { blue, magenta } from 'chalk';
 
-export class CommandSuccessListener extends Listener<
-	typeof Events.CommandSuccess
-> {
+export class CommandSuccessListener extends Listener<typeof Events.CommandSuccess> {
 	public constructor(context: PieceContext, options?: ListenerOptions) {
 		super(context, {
 			...options,
@@ -19,9 +17,7 @@ export class CommandSuccessListener extends Listener<
 
 	public run(data: CommandSuccessPayload) {
 		this.container.client.logger.info(
-			`${magenta(data.message.author.tag)} used the command ${blue(
-				data.command.name
-			)}.`
+			`${magenta(data.message.author.tag)} used the command ${blue(data.command.name)}.`
 		);
 	}
 }

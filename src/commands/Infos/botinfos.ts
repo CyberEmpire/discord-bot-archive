@@ -2,10 +2,8 @@ import { Command, PieceContext } from '@sapphire/framework';
 import { Message, MessageEmbed } from 'discord.js';
 
 function getmemoryUsage(): string {
-	const used =
-		Math.round((process.memoryUsage().heapUsed / 1024 / 1024) * 100) / 100;
-	const total =
-		Math.round((process.memoryUsage().heapTotal / 1024 / 1024) * 100) / 100;
+	const used = Math.round((process.memoryUsage().heapUsed / 1024 / 1024) * 100) / 100;
+	const total = Math.round((process.memoryUsage().heapTotal / 1024 / 1024) * 100) / 100;
 	return `${used} / ${total} MB`;
 }
 
@@ -19,9 +17,7 @@ export class BotInfosCommand extends Command {
 	}
 
 	async run(message: Message) {
-		const owner = await message.client.users
-			.fetch('191257958431195146')
-			.catch(() => null);
+		const owner = await message.client.users.fetch('191257958431195146').catch(() => null);
 
 		const embed = new MessageEmbed()
 			.setColor('#00df11')
@@ -34,10 +30,7 @@ export class BotInfosCommand extends Command {
 				'__Users:__',
 				`The total amount of users accessible is **${message.client.users.cache.size}**.`
 			)
-			.addField(
-				'__Ping:__',
-				`Discord API Latency: **${message.client.ws.ping}ms**.`
-			)
+			.addField('__Ping:__', `Discord API Latency: **${message.client.ws.ping}ms**.`)
 			.addField('__RAM:__', `Memory used: **${getmemoryUsage()}**.`);
 
 		if (owner) {

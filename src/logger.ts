@@ -14,8 +14,7 @@ class CustomLogger extends Logger {
 	public override write(level: LogLevel, ...values: readonly unknown[]): void {
 		if (!this.has(level)) return;
 		const method = Logger.levels.get(level);
-		if (typeof method === 'string')
-			console[method](`[${levels.get(level)}]`, ...values);
+		if (typeof method === 'string') console[method](`[${levels.get(level)}]`, ...values);
 	}
 
 	constructor(logLevel: LogLevel) {

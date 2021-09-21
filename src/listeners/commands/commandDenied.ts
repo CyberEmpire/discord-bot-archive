@@ -8,9 +8,7 @@ import {
 } from '@sapphire/framework';
 import { blue, magenta } from 'chalk';
 
-export class CommandDeniedListener extends Listener<
-	typeof Events.CommandDenied
-> {
+export class CommandDeniedListener extends Listener<typeof Events.CommandDenied> {
 	public constructor(context: PieceContext, options?: ListenerOptions) {
 		super(context, {
 			...options,

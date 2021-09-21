@@ -1,10 +1,4 @@
-import {
-	Command,
-	Events,
-	Listener,
-	ListenerOptions,
-	PieceContext,
-} from '@sapphire/framework';
+import { Command, Events, Listener, ListenerOptions, PieceContext } from '@sapphire/framework';
 import { red, green, magentaBright, blue, blueBright } from 'chalk';
 import type { Client } from 'discord.js';
 

@@ -4,19 +4,13 @@ import { GuildMember, Message, MessageEmbed, User } from 'discord.js';
 async function banMember(member: GuildMember, reason: string) {
 	if (member.bannable) {
 		await member
-			.send(
-				`**You have been banned from ${member.guild.name}. Reason: ${reason}**`
-			)
+			.send(`**You have been banned from ${member.guild.name}. Reason: ${reason}**`)
 			.catch(() => {});
 		await member.ban({ reason, days: 1 });
 	}
 }
 
-function makeBanEmbed(
-	author: User,
-	member: GuildMember,
-	reason: string
-): MessageEmbed {
+function makeBanEmbed(author: User, member: GuildMember, reason: string): MessageEmbed {
 	const message = member.bannable
 		? `**${member.user.tag} has been banned.**`
 		: `**${member.user.tag} couldn't be banned.**`;

@@ -68,9 +68,7 @@ function makeHelpEmbed(command: Command): MessageEmbed {
 	if (command.detailedDescription) {
 		embed.addField(
 			'Usage:',
-			`**${getPrefix(command.container.client) + command.name}** ${
-				command.detailedDescription
-			}`
+			`**${getPrefix(command.container.client) + command.name}** ${command.detailedDescription}`
 		);
 	}
 

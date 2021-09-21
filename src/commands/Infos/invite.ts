@@ -11,8 +11,6 @@ export class InviteCommand extends Command {
 	}
 
 	async run(message: Message) {
-		message.reply(
-			"Here's Cyber Empire's invite link: https://discord.gg/wKJaE9C"
-		);
+		message.reply("Here's Cyber Empire's invite link: https://discord.gg/wKJaE9C");
 	}
 }

@@ -4,19 +4,13 @@ import { GuildMember, Message, MessageEmbed, User } from 'discord.js';
 async function kickMember(member: GuildMember, reason: string) {
 	if (member.kickable) {
 		await member
-			.send(
-				`**You have been kicked from ${member.guild.name}. Reason: ${reason}**`
-			)
+			.send(`**You have been kicked from ${member.guild.name}. Reason: ${reason}**`)
 			.catch(() => {});
 		await member.kick(reason);
 	}
 }
 
-function makeKickEmbed(
-	author: User,
-	member: GuildMember,
-	reason: string
-): MessageEmbed {
+function makeKickEmbed(author: User, member: GuildMember, reason: string): MessageEmbed {
 	const message = member.kickable
 		? `**${member.user.tag} has been kicked.**`
 		: `**${member.user.tag} couldn't be kicked.**`;
