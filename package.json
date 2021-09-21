@@ -3,6 +3,28 @@
 	"version": "1.0.0",
 	"description": "The Cyber Empire's Discord Bot",
 	"main": "built/index.js",
+	"scripts": {
+		"test": "npm run check-format && npm run rebuild && npm run start",
+		"format": "prettier -w src/*",
+		"check-format": "prettier -c src/*",
+		"start": "node .",
+		"build": "tsc",
+		"rebuild": "npm run clean && npm run build",
+		"clean": "rm -rf built"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Caesarovich/ce-discord-bot.git"
+	},
+	"author": "Caesarovich",
+	"license": "GPL-3.0-or-later",
+	"bugs": {
+		"url": "https://github.com/Caesarovich/ce-discord-bot/issues"
+	},
+	"homepage": "https://github.com/Caesarovich/ce-discord-bot#readme",
+	"eslintConfig": {
+		"extends": "@sapphire"
+	},
 	"dependencies": {
 		"@sapphire/eslint-config": "^3.2.3",
 		"@sapphire/framework": "^2.0.0-next.71c18830.0",
@@ -45,26 +67,5 @@
 		"typescript": "^4.4.3",
 		"vali-date": "^1.0.0",
 		"ws": "^7.5.4"
-	},
-	"scripts": {
-		"test": "npm run check-format && npm run rebuild && npm run start",
-		"check-format": "prettier -c src/*",
-		"start": "node .",
-		"build": "tsc",
-		"rebuild": "npm run clean && npm run build",
-		"clean": "rm -rf built"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Caesarovich/ce-discord-bot.git"
-	},
-	"author": "Caesarovich",
-	"license": "GPL-3.0-or-later",
-	"bugs": {
-		"url": "https://github.com/Caesarovich/ce-discord-bot/issues"
-	},
-	"homepage": "https://github.com/Caesarovich/ce-discord-bot#readme",
-	"eslintConfig": {
-		"extends": "@sapphire"
 	}
 }
