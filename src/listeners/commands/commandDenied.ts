@@ -6,7 +6,7 @@ import {
 	PieceContext,
 	UserError,
 } from '@sapphire/framework';
-import { magenta } from 'chalk';
+import { blue, magenta } from 'chalk';
 
 export class CommandDeniedListener extends Listener<
 	typeof Events.CommandDenied
@@ -20,7 +20,7 @@ export class CommandDeniedListener extends Listener<
 
 	public run(error: UserError, data: CommandDeniedPayload) {
 		this.container.client.logger.info(
-			`Command ${data.command.name} denied for ${magenta(
+			`Command ${blue(data.command.name)} denied for ${magenta(
 				data.message.author.tag
 			)}. Because of error ${error.name}`
 		);
