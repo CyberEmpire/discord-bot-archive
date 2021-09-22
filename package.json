@@ -29,6 +29,7 @@
 		"@sapphire/eslint-config": "^3.2.3",
 		"@sapphire/framework": "^2.0.0-next.71c18830.0",
 		"@sapphire/ts-config": "^3.0.0",
+		"@types/validator": "^13.6.3",
 		"abort-controller": "^3.0.0",
 		"ansi-styles": "^4.3.0",
 		"asynckit": "^0.4.0",
