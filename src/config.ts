@@ -12,6 +12,8 @@ if (loadEnv().error) {
 
 const env: any = loadEnv().parsed;
 
+const logger = new CustomLogger(LogLevel.Debug);
+
 interface Configuration {
 	bot: {
 		clientOptions: ClientOptions;
@@ -27,7 +29,7 @@ const config: Configuration = {
 			// Enable all intents
 			defaultPrefix: '!',
 			caseInsensitiveCommands: true,
-			logger: { instance: new CustomLogger(LogLevel.Debug) },
+			logger: { instance: logger },
 			intents: Object.values(Intents.FLAGS).reduce((a, b) => a + b),
 		},
 	},
@@ -37,6 +39,7 @@ const config: Configuration = {
 		username: env.DB_USER,
 		password: env.DB_PASS,
 		dialect: 'mariadb',
+		logging: (...msg) => logger.debug(msg[0]),
 	},
 };
 
