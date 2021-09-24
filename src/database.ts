@@ -13,6 +13,8 @@ export class Database extends Sequelize {
 				)}`
 			);
 
+			await container.database.sync();
+
 			resolve();
 		});
 	}
