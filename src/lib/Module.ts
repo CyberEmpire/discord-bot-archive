@@ -7,5 +7,9 @@ export class Module extends Piece {
 
 	protected constructor(context: PieceContext, options: ModuleOptions = {}) {
 		super(context, { ...options, name: (options.name ?? context.name).toLowerCase() });
+
+		if (this.clientReady) {
+			this.container.client.once('ready', this.clientReady);
+		}
 	}
 }
