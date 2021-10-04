@@ -31,6 +31,11 @@ interface Configuration {
 		maxXp: number;
 		xpMultiplier: number;
 		cardImg: string;
+		// TODO: Find a better way to implement that
+		fonts: {
+			path: string;
+			family: string;
+		}[];
 	};
 }
 
@@ -62,7 +67,14 @@ const config: Configuration = {
 		startLevel: 0,
 		startXp: 100,
 		xpMultiplier: 1,
-		cardImg: join(__dirname, 'images', 'empty-level-card.png'),
+		cardImg: join(__dirname, '..', 'images', 'empty-level-card.png'),
+		fonts: [
+			{ path: join(__dirname, '..', 'fonts', 'consolas.ttf'), family: 'Consolas' },
+			{
+				path: join(__dirname, '..', 'fonts', 'computo-monospace.otf'),
+				family: 'Computo Monospace',
+			},
+		],
 	},
 };
 
