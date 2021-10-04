@@ -1,4 +1,5 @@
 import { exit } from 'process';
+import { join } from 'path';
 import { config as loadEnv } from 'dotenv';
 import { ClientOptions, Intents } from 'discord.js';
 import { LogLevel } from '@sapphire/framework';
@@ -29,6 +30,7 @@ interface Configuration {
 		minXp: number;
 		maxXp: number;
 		xpMultiplier: number;
+		cardImg: string;
 	};
 }
 
@@ -60,6 +62,7 @@ const config: Configuration = {
 		startLevel: 0,
 		startXp: 100,
 		xpMultiplier: 1,
+		cardImg: join(__dirname, 'images', 'empty-level-card.png'),
 	},
 };
 
