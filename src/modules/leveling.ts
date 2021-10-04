@@ -72,7 +72,6 @@ async function makeLeaderboard(): Promise<Array<MemberLevel>> {
 	const leaderboard = (
 		await container.database.query('SELECT * FROM MemberLevels ORDER BY level DESC, xp DESC')
 	)[0] as MemberLevel[];
-	console.log(leaderboard);
 	return leaderboard.filter((m) => members.has(m.id));
 }
 
