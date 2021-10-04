@@ -9,7 +9,9 @@ export class Module extends Piece {
 		super(context, { ...options, name: (options.name ?? context.name).toLowerCase() });
 
 		if (this.clientReady) {
-			this.container.client.once('ready', this.clientReady);
+			this.container.client.once('ready', (client) => {
+				this?.clientReady?.(client);
+			});
 		}
 	}
 }
