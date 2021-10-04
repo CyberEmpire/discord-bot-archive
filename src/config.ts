@@ -19,7 +19,17 @@ interface Configuration {
 		clientOptions: ClientOptions;
 		token: string;
 	};
+	guild: {
+		id: string;
+	};
 	database: SequelizeOption;
+	leveling: {
+		startLevel: number;
+		startXp: number;
+		minXp: number;
+		maxXp: number;
+		xpMultiplier: number;
+	};
 }
 
 const config: Configuration = {
@@ -27,11 +37,14 @@ const config: Configuration = {
 		token: env.BOT_TOKEN as string,
 		clientOptions: {
 			// Enable all intents
-			defaultPrefix: '!',
+			defaultPrefix: env.BOT_PREFIX ?? '!',
 			caseInsensitiveCommands: true,
 			logger: { instance: logger },
 			intents: Object.values(Intents.FLAGS).reduce((a, b) => a + b),
 		},
+	},
+	guild: {
+		id: env.GUILD_ID ?? '511176831391629313',
 	},
 	database: {
 		host: env.DB_HOST,
@@ -40,6 +53,13 @@ const config: Configuration = {
 		password: env.DB_PASS,
 		dialect: 'mariadb',
 		logging: (...msg) => logger.debug(msg[0]),
+	},
+	leveling: {
+		minXp: 25,
+		maxXp: 35,
+		startLevel: 0,
+		startXp: 100,
+		xpMultiplier: 1,
 	},
 };
 
