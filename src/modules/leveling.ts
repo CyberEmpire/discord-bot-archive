@@ -112,6 +112,11 @@ export class LevelingModule extends Module {
 					container.logger.info(
 						`${magenta(message.author.tag)} is now level ${yellowBright(ml.level)}`
 					);
+					const card = await container.modules.get('level-card').makeCard(message.member);
+					message.channel.send({
+						content: `GG ${message.author} ! You are now **level ${ml.level}** !`,
+						files: [card.createPNGStream()],
+					});
 				}
 
 				ml.save();
