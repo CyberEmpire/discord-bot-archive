@@ -2,6 +2,9 @@ import { DataTypes, Model } from 'sequelize';
 import { PieceContext, container } from '@sapphire/framework';
 import { Module } from '../lib/Module';
 import type { GuildMember } from 'discord.js';
+import { magenta, yellowBright } from 'chalk';
+
+const conf = container.config.leveling;
 
 class MemberLevel extends Model {}
 
@@ -27,7 +30,7 @@ MemberLevel.init(
 		xp: {
 			type: DataTypes.BIGINT,
 			allowNull: false,
-			defaultValue: 0,
+			defaultValue: conf.startXp,
 			set(val: number) {
 				const cap = this.nextLevelXP;
 				if (val < cap) {
@@ -44,7 +47,7 @@ MemberLevel.init(
 		level: {
 			type: DataTypes.INTEGER,
 			allowNull: false,
-			defaultValue: 1,
+			defaultValue: conf.startLevel,
 		},
 	},
 	{
@@ -67,26 +70,33 @@ export class LevelingModule extends Module {
 	}
 
 	override async clientReady() {
-		const guild = await container.client.guilds.fetch('881612001720283208');
+		const guild = await container.client.guilds.fetch(container.config.guild.id);
 		const members = await guild.members.fetch();
 
 		members.forEach(async (member) => {
 			const ml = await this.getMember(member);
-			container.logger.debug(ml.id);
 			ml.username = member.user.username;
-			console.log(ml.nextLevelXP);
 			ml.save();
 		});
 	}
 
 	override async onLoad() {
 		await MemberLevel.sync();
-		this.container.client.on('message', async (message) => {
+		container.client.on('message', async (message) => {
 			if (message.member && !message.author.bot) {
 				const ml = await this.getMember(message.member);
 				const lvl = ml.level;
-				ml.xp += 3000;
-				if (ml.level > lvl) message.reply('GG');
+
+				ml.xp +=
+					Math.ceil(conf.minXp + Math.random() * (conf.maxXp - conf.minXp)) * conf.xpMultiplier;
+
+				// Level UP
+				if (ml.level > lvl) {
+					container.logger.info(
+						`${magenta(message.author.tag)} is now level ${yellowBright(ml.level)}`
+					);
+				}
+
 				ml.save();
 			}
 		});

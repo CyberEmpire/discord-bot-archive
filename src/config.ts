@@ -23,6 +23,13 @@ interface Configuration {
 		id: string;
 	};
 	database: SequelizeOption;
+	leveling: {
+		startLevel: number;
+		startXp: number;
+		minXp: number;
+		maxXp: number;
+		xpMultiplier: number;
+	};
 }
 
 const config: Configuration = {
@@ -46,6 +53,13 @@ const config: Configuration = {
 		password: env.DB_PASS,
 		dialect: 'mariadb',
 		logging: (...msg) => logger.debug(msg[0]),
+	},
+	leveling: {
+		minXp: 25,
+		maxXp: 35,
+		startLevel: 0,
+		startXp: 100,
+		xpMultiplier: 1,
 	},
 };
 
