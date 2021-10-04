@@ -34,6 +34,7 @@
 		"ansi-styles": "^4.3.0",
 		"asynckit": "^0.4.0",
 		"callsites": "^3.1.0",
+		"canvas": "^2.8.0",
 		"chalk": "^4.1.2",
 		"color-convert": "^2.0.1",
 		"color-name": "^1.1.4",

@@ -14,7 +14,8 @@ export class LevelCommand extends Command {
 	async run(message: Message, args: Args) {
 		if (!message.member) return;
 		const member = (await args.pick('member').catch(() => message.member)) as GuildMember;
-		const ml = await container.modules.get('leveling').getMember(member);
-		message.reply(`${member} is level **${ml.level}** with **${ml.xp}** XP`);
+		const card = await container.modules.get('level-card').makeCard(member);
+
+		message.reply({ files: [card.createPNGStream()] });
 	}
 }
