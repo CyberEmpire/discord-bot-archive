@@ -107,6 +107,8 @@ export class LevelingModule extends Module {
 					Math.ceil(conf.minXp + Math.random() * (conf.maxXp - conf.minXp)) * conf.xpMultiplier;
 
 				// Level UP
+
+				await ml.save();
 				if (ml.level > lvl) {
 					container.logger.info(
 						`${magenta(message.author.tag)} is now level ${yellowBright(ml.level)}`
@@ -117,8 +119,6 @@ export class LevelingModule extends Module {
 						files: [card.createPNGStream()],
 					});
 				}
-
-				ml.save();
 			}
 		});
 	}
