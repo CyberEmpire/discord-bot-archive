@@ -32,10 +32,12 @@ MemberLevel.init(
 				const cap = this.nextLevelXP;
 				if (val < cap) {
 					this.setDataValue('xp', val);
-				} else {
+				} else if (val >= 0) {
 					this.level += 1;
-					// LVL UP
 					this.xp = val - cap;
+				} else {
+					this.level -= 1;
+					this.xp = this.nextLevelXP + val;
 				}
 			},
 		},
