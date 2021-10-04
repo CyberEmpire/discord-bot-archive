@@ -14,6 +14,7 @@ interface MemberLevel {
 	xp: number;
 	level: number;
 	nextLevelXP: number;
+	rank: Promise<number>;
 }
 
 MemberLevel.init(
@@ -57,11 +58,27 @@ MemberLevel.init(
 			nextLevelXP() {
 				return Math.floor(500 + 500 * 0.4 * this.level);
 			},
+			async rank(): Promise<number> {
+				const leaderboard = await makeLeaderboard();
+				return leaderboard.findIndex((m) => m.id === this.id) + 1;
+			},
 		},
 	}
 );
 
+async function makeLeaderboard(): Promise<Array<MemberLevel>> {
+	const guild = await container.client.guilds.fetch(container.config.guild.id);
+	const members = await guild.members.fetch();
+	const leaderboard = (
+		await container.database.query('SELECT * FROM MemberLevels ORDER BY level DESC, xp DESC')
+	)[0] as MemberLevel[];
+	console.log(leaderboard);
+	return leaderboard.filter((m) => members.has(m.id));
+}
+
 export class LevelingModule extends Module {
+	getLeaderboard = makeLeaderboard;
+
 	async getMember(member: GuildMember): Promise<MemberLevel> {
 		return (
 			(await MemberLevel.findByPk(member.id)) ??

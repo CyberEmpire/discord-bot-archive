@@ -159,7 +159,16 @@ export class LevelCardModule extends Module {
 		);
 
 		// Rank
-		shadowedText(ctx, `#${0}`, 1600, 730, 'bold 170px Consolas', 5, 'rgb(0,223,13)', 'rgb(0,0,0)');
+		shadowedText(
+			ctx,
+			`#${await ml.rank}`,
+			1600,
+			730,
+			'bold 170px Consolas',
+			5,
+			'rgb(0,223,13)',
+			'rgb(0,0,0)'
+		);
 
 		// Progress Bar
 		const percent = Math.floor((ml.xp * 100) / ml.nextLevelXP);
