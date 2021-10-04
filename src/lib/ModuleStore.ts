@@ -6,6 +6,7 @@ type Key = keyof ModuleStoreEntries;
 export class ModuleStore extends Store<Module> {
 	constructor() {
 		super(Module as any, { name: 'modules' });
+		this.container.modules = this;
 	}
 }
 
