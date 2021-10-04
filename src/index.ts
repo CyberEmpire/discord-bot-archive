@@ -4,6 +4,8 @@ import { Database } from './database';
 import { SapphireClient, container } from '@sapphire/framework';
 import { ModuleStore } from './lib/ModuleStore';
 
+container.config = config;
+
 container.database = new Database(config.database);
 
 container.database.setup().catch((err: Error) => {

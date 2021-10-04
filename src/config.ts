@@ -19,6 +19,9 @@ interface Configuration {
 		clientOptions: ClientOptions;
 		token: string;
 	};
+	guild: {
+		id: string;
+	};
 	database: SequelizeOption;
 }
 
@@ -27,11 +30,14 @@ const config: Configuration = {
 		token: env.BOT_TOKEN as string,
 		clientOptions: {
 			// Enable all intents
-			defaultPrefix: '!',
+			defaultPrefix: env.BOT_PREFIX ?? '!',
 			caseInsensitiveCommands: true,
 			logger: { instance: logger },
 			intents: Object.values(Intents.FLAGS).reduce((a, b) => a + b),
 		},
+	},
+	guild: {
+		id: env.GUILD_ID ?? '511176831391629313',
 	},
 	database: {
 		host: env.DB_HOST,
