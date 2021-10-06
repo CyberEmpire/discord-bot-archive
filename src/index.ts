@@ -17,5 +17,8 @@ const client = new SapphireClient(config.bot.clientOptions);
 
 client.stores.register(new ModuleStore().registerPath(join(__dirname, 'modules')));
 
-client.login(config.bot.token).catch(console.error);
+client.login(config.bot.token).catch((err: Error) => {
+	client.logger.fatal(`Connection to Discord failed: ${err}`);
+  process.exit();
+});
 client.logger.info(`Logging in...`);
