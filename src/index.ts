@@ -19,6 +19,6 @@ client.stores.register(new ModuleStore().registerPath(join(__dirname, 'modules')
 
 client.login(config.bot.token).catch((err: Error) => {
 	client.logger.fatal(`Connection to Discord failed: ${err}`);
-  process.exit();
+	process.exit();
 });
 client.logger.info(`Logging in...`);
