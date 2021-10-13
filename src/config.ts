@@ -39,6 +39,11 @@ interface Configuration {
 	};
 }
 
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
 const config: Configuration = {
 	bot: {
 		token: env.BOT_TOKEN as string,
@@ -67,6 +72,7 @@ const config: Configuration = {
 		startLevel: 0,
 		startXp: 100,
 		xpMultiplier: 1,
+		last_update: mm + '/' + dd + '/' + yyyy,
 		cardImg: join(__dirname, '..', 'images', 'empty-level-card.png'),
 		fonts: [
 			{ path: join(__dirname, '..', 'fonts', 'consolas.ttf'), family: 'Consolas' },
