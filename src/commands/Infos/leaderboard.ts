@@ -26,6 +26,7 @@ function makeButtons(page: number, max: number): MessageActionRow {
 				label: 'Previous',
 				style: 'PRIMARY',
 				type: 'BUTTON',
+				emoji: '◀️',
 				disabled: page <= 0,
 			}),
 			new MessageButton({
@@ -33,6 +34,7 @@ function makeButtons(page: number, max: number): MessageActionRow {
 				label: 'Next',
 				style: 'PRIMARY',
 				type: 'BUTTON',
+				emoji: '▶️',
 				disabled: page >= max,
 			}),
 		],
@@ -51,8 +53,6 @@ export class LeaderboardCommand extends Command {
 	async run(message: Message) {
 		const leveling = this.container.modules.get('leveling');
 		let leaderboard = await leveling.getLeaderboard();
-
-		leaderboard = [...leaderboard, ...leaderboard, ...leaderboard];
 
 		let page = 0;
 		const maxPage = Math.floor(leaderboard.length / 10);
@@ -89,6 +89,10 @@ export class LeaderboardCommand extends Command {
 					i.reply('You are already at the last page !');
 				}
 			}
+		});
+
+		collector.on('end', () => {
+			m.edit({ components: [] });
 		});
 	}
 }
