@@ -6,9 +6,9 @@ import { magenta, yellowBright } from 'chalk';
 
 const conf = container.config.leveling;
 
-class MemberLevel extends Model {}
+export class MemberLevel extends Model {}
 
-interface MemberLevel {
+export interface MemberLevel {
 	id: string;
 	username: string;
 	xp: number;
