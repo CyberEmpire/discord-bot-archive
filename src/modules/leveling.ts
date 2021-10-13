@@ -75,6 +75,23 @@ async function makeLeaderboard(): Promise<Array<MemberLevel>> {
 	return leaderboard.filter((m) => members.has(m.id));
 }
 
+
+
+async function getMemberCorpses(): Promise<Array<MemberLevel>> {
+	var today = new Date();
+	var dd = String(today.getDate()).padStart(2, '0');
+	var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+	var yyyy = today.getFullYear();
+	const guild = await container.client.guilds.fetch(container.config.guild.id);
+	const members = await guild.members.fetch();
+	const corpses = (
+		await container.database.query('SELECT * FROM MemberLevels WHERE last_update < DATEADD(day, -14, GETDATE())');
+	)[0] as MemberLevel[];
+	return corpses;
+}
+
+// Put corpses in #logs via command or whatever
+
 export class LevelingModule extends Module {
 	getLeaderboard = makeLeaderboard;
 
