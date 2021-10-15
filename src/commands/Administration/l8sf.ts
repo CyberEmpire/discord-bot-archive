@@ -14,18 +14,22 @@ export class L8SFCommand extends Command {
 	async run(message: Message) {
 		const lb = await container.modules.get('leveling').getLeaderboard();
 
-		const now = new Date();
-
+		var now = new Date();
+		now.setDate(now.getDate() - 7); // users that are inactive for seven days in a row
+		
 		const inactive = lb.filter((l: MemberLevel) => {
 			return l.updatedAt < now;
 		});
 
-		let text = '';
+		
 
 		for (const l of inactive) {
-			text += `${l.username} : ${l.level} : ${l.xp}\n`;
+			message.reply(`${l.id} : ${l.username} : ${l.level} : ${l.xp}\n`); // each user that is inactive for 7 days gets send
+			// might add sleep() if await correct
 		}
-
-		await message.reply(text);
+		
+		if (l.length === 0) message.reply(`All users active`);
+		
+		return;
 	}
 }
