@@ -98,7 +98,7 @@ export class LevelingModule extends Module {
 
 	override async onLoad() {
 		await MemberLevel.sync();
-		container.client.on('message', async (message) => {
+		container.client.on('messageCreate', async (message) => {
 			if (message.member && !message.author.bot) {
 				const ml = await this.getMember(message.member);
 				const lvl = ml.level;
