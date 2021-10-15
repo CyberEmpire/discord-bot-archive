@@ -22,6 +22,7 @@ interface Configuration {
 	};
 	guild: {
 		id: string;
+		welcomeChannel: string;
 	};
 	database: SequelizeOption;
 	leveling: {
@@ -52,6 +53,7 @@ const config: Configuration = {
 	},
 	guild: {
 		id: env.GUILD_ID ?? '511176831391629313',
+		welcomeChannel: env.GUILD_WELCOME_CHANNEL,
 	},
 	database: {
 		host: env.DB_HOST,
