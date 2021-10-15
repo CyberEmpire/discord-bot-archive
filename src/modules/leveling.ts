@@ -15,6 +15,8 @@ export interface MemberLevel {
 	level: number;
 	nextLevelXP: number;
 	rank: Promise<number>;
+	createdAt: Date;
+	updatedAt: Date;
 }
 
 MemberLevel.init(
