@@ -13,9 +13,8 @@ export class SHA1Command extends Command {
 	}
 
 	async run(message: Message, args: Args) {
-		const str = await args.rest('string', { minimum: 1 }).catch(() => {
-			message.reply('Missing `text` argument.');
-		});
+		const str = await args.rest('string', { minimum: 1 });
+
 		if (str) {
 			const embed = new MessageEmbed()
 				.setColor('#00df11')
