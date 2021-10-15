@@ -11,7 +11,6 @@ export class CommandAcceptListener extends Listener<typeof Events.CommandAccepte
 	public constructor(context: PieceContext, options?: ListenerOptions) {
 		super(context, {
 			...options,
-			once: true,
 		});
 	}
 
