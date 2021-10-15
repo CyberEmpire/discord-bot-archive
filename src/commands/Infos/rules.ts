@@ -60,6 +60,7 @@ export class RulesCommand extends Command {
 
 	async run(message: Message, args: Args) {
 		const rule = await args.pick('number').catch(() => null);
+
 		if (rule) {
 			if (rules[rule - 1]) {
 				message.reply({ embeds: [makeRulesEmbed([rules[rule - 1]])] });

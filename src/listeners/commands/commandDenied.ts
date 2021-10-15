@@ -12,7 +12,6 @@ export class CommandDeniedListener extends Listener<typeof Events.CommandDenied>
 	public constructor(context: PieceContext, options?: ListenerOptions) {
 		super(context, {
 			...options,
-			once: true,
 		});
 	}
 
