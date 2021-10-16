@@ -33,7 +33,7 @@ export class L8SFCommand extends Command {
 				await message.reply(text); // each user that is inactive for 7 days gets send
 				text = '';
 			}
-			let text += `${l.id} : ${l.username} : ${l.level} : ${l.xp}\n`;
+			text += `${l.id} : ${l.username} : ${l.level} : ${l.xp}\n`;
 			await delay(1000); // might add sleep() if await correct
 		}
 		if (inactive.length !== 0) await message.reply(text);
