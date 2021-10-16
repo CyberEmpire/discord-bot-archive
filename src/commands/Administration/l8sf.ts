@@ -36,7 +36,7 @@ export class L8SFCommand extends Command {
 			let text += `${l.id} : ${l.username} : ${l.level} : ${l.xp}\n`;
 			await delay(1000); // might add sleep() if await correct
 		}
-		await message.reply(text);
+		if (inactive.length !== 0) await message.reply(text);
 		if (inactive.length === 0) message.reply(`All users active`);
 		
 		return;
