@@ -25,10 +25,15 @@ export class L8SFCommand extends Command {
 		    return new Promise( resolve => setTimeout(resolve, ms) );
 		}
 		
-
+		let count = 0;
+		let text = '';
 		for (const l of inactive) {
-			
-			message.reply(`${l.id} : ${l.username} : ${l.level} : ${l.xp}\n`); // each user that is inactive for 7 days gets send
+			count++;
+			if (!(count % 10)) {
+				await message.reply(text); // each user that is inactive for 7 days gets send
+				text = '';
+			}
+			let text += `${l.id} : ${l.username} : ${l.level} : ${l.xp}\n`;
 			await delay(1000); // might add sleep() if await correct
 		}
 		
