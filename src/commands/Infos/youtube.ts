@@ -9,7 +9,7 @@ export class YoutubeCommand extends Command {
 		});
 	}
 
-	async run(message: Message) {
+	async messageRun(message: Message) {
 		message.reply(
 			'▶️ Visit our awesome Youtube chanel https://www.youtube.com/channel/UCVn_9X30syB8Qbhd6eUXTDA'
 		);

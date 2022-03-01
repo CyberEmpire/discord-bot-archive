@@ -8,7 +8,7 @@ export class DebugListener extends Listener<typeof Events.Debug> {
 		});
 	}
 
-	public run(info: string) {
+	public messageRun(info: string) {
 		this.container.client.logger.debug(info);
 	}
 }

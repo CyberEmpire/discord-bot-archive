@@ -23,6 +23,11 @@ interface Configuration {
 	guild: {
 		id: string;
 		welcomeChannel: string;
+		autoRoleChannel: string;
+		autoRoles: {
+			image: string;
+			roles: [string, string?][];
+		}[];
 	};
 	database: SequelizeOption;
 	leveling: {
@@ -54,6 +59,18 @@ const config: Configuration = {
 	guild: {
 		id: env.GUILD_ID ?? '511176831391629313',
 		welcomeChannel: env.GUILD_WELCOME_CHANNEL,
+		autoRoleChannel: env.GUILD_ROLE_CHANNEL,
+		autoRoles: [
+			{
+				image:
+					'https://cdn.discordapp.com/attachments/848359075544170496/848596773735104512/Sans_titre_2.png',
+				roles: [
+					['881612002169077805'],
+					['881612002169077804'],
+					['881612002169077802', 'Description'],
+				],
+			},
+		],
 	},
 	database: {
 		host: env.DB_HOST,

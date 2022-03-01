@@ -9,7 +9,7 @@ export class DiceCommand extends Command {
 		});
 	}
 
-	async run(message: Message) {
+	async messageRun(message: Message) {
 		const num = Math.round(Math.random() * 5 + 1);
 
 		message.reply(`🎲 You rolled a **${num}** !`);

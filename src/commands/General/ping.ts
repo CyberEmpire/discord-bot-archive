@@ -10,7 +10,7 @@ export class PingCommand extends Command {
 		});
 	}
 
-	async run(message: Message) {
+	async messageRun(message: Message) {
 		const response = await message.channel.send('Ping...');
 		const latency = response.createdTimestamp - message.createdTimestamp;
 		await response.edit(`Pong! Took me ${latency}ms. Gateway ping: ${message.client.ws.ping}ms`);

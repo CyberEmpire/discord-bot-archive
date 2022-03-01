@@ -14,7 +14,7 @@ export class CommandSuccessListener extends Listener<typeof Events.CommandSucces
 		});
 	}
 
-	public run(data: CommandSuccessPayload) {
+	public messageRun(data: CommandSuccessPayload) {
 		this.container.client.logger.info(
 			`${magenta(data.message.author.tag)} used the command ${blue(data.command.name)}.`
 		);

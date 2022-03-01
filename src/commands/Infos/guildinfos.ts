@@ -15,7 +15,7 @@ export class GuildInfosCommand extends Command {
 		});
 	}
 
-	async run(message: Message) {
+	async messageRun(message: Message) {
 		if (message.guild) {
 			const owner = await message.guild.fetchOwner();
 

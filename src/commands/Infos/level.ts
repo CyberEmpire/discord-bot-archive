@@ -11,7 +11,7 @@ export class LevelCommand extends Command {
 		});
 	}
 
-	async run(message: Message, args: Args) {
+	async messageRun(message: Message, args: Args) {
 		if (!message.member) return;
 		const member = (await args.pick('member').catch(() => message.member)) as GuildMember;
 		const card = await container.modules.get('level-card').makeCard(member);

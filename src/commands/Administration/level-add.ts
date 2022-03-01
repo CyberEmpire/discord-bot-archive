@@ -13,7 +13,7 @@ export class LevelAddCommand extends Command {
 		});
 	}
 
-	async run(message: Message, args: Args) {
+	async messageRun(message: Message, args: Args) {
 		const member = await args.pick('member');
 		const amount = await args.pick('number');
 

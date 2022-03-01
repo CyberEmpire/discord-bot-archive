@@ -26,7 +26,7 @@ export class UnbanCommand extends Command {
 		});
 	}
 
-	async run(message: Message, args: Args) {
+	async messageRun(message: Message, args: Args) {
 		const users = await args.repeat('user');
 		const reason = await args.rest('string').catch(() => 'No Reason');
 

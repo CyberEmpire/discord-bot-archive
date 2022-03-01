@@ -50,7 +50,7 @@ export class LeaderboardCommand extends Command {
 		});
 	}
 
-	async run(message: Message) {
+	async messageRun(message: Message) {
 		const leveling = this.container.modules.get('leveling');
 		let leaderboard = await leveling.getLeaderboard();
 

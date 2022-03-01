@@ -12,7 +12,7 @@ export class L8SFCommand extends Command {
 		});
 	}
 
-	async run(message: Message, args: Args) {
+	async messageRun(message: Message, args: Args) {
 		const lb = await container.modules.get('leveling').getLeaderboard();
 
 		const inactivityDays = await args.pick('number').catch(() => 7);

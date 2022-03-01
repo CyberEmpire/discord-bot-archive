@@ -58,7 +58,7 @@ export class RulesCommand extends Command {
 		});
 	}
 
-	async run(message: Message, args: Args) {
+	async messageRun(message: Message, args: Args) {
 		const rule = await args.pick('number').catch(() => null);
 
 		if (rule) {

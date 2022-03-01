@@ -12,7 +12,7 @@ export class CleanCommand extends Command {
 		});
 	}
 
-	async run(message: Message, args: Args) {
+	async messageRun(message: Message, args: Args) {
 		let amount = await args.pick('number');
 
 		amount = Math.min(1000, Math.max(1, amount));

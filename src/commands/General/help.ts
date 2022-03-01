@@ -91,7 +91,7 @@ export class HelpCommand extends Command {
 		});
 	}
 
-	async run(message: Message, args: Args) {
+	async messageRun(message: Message, args: Args) {
 		const commands = this.container.stores.get('commands');
 		let arg = args.finished ? null : await args.pick('string');
 

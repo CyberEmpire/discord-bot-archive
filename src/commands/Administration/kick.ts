@@ -37,7 +37,7 @@ export class KickCommand extends Command {
 		});
 	}
 
-	async run(message: Message, args: Args) {
+	async messageRun(message: Message, args: Args) {
 		const members = await args.repeat('member');
 		const reason = await args.rest('string').catch(() => 'No Reason');
 

@@ -31,7 +31,7 @@ export class MemeCommand extends Command {
 		});
 	}
 
-	async run(message: Message) {
+	async messageRun(message: Message) {
 		const meme = await getRandomMeme();
 
 		const embed = new MessageEmbed()

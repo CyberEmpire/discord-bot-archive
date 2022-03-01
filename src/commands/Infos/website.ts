@@ -9,7 +9,7 @@ export class WebsiteCommand extends Command {
 		});
 	}
 
-	async run(message: Message) {
+	async messageRun(message: Message) {
 		message.reply('https://thecyberempire.com/');
 	}
 }

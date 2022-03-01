@@ -12,7 +12,7 @@ export class SHA224Command extends Command {
 		});
 	}
 
-	async run(message: Message, args: Args) {
+	async messageRun(message: Message, args: Args) {
 		const str = await args.rest('string', { minimum: 1 });
 
 		if (str) {

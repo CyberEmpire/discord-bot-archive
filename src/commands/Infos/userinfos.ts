@@ -15,7 +15,7 @@ export class UserInfosCommand extends Command {
 		});
 	}
 
-	async run(message: Message, args: Args) {
+	async messageRun(message: Message, args: Args) {
 		if (message.member) {
 			const member: GuildMember = (await args
 				.pick('member')

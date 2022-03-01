@@ -16,7 +16,7 @@ export class BotInfosCommand extends Command {
 		});
 	}
 
-	async run(message: Message) {
+	async messageRun(message: Message) {
 		const owner = await message.client.users.fetch('191257958431195146').catch(() => null);
 
 		const embed = new MessageEmbed()
