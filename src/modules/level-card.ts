@@ -6,12 +6,12 @@ import {
 	createCanvas,
 	Image,
 	loadImage,
-	NodeCanvasRenderingContext2D,
+	CanvasRenderingContext2D,
 	registerFont,
 } from 'canvas';
 
 function shadowedText(
-	ctx: NodeCanvasRenderingContext2D,
+	ctx: CanvasRenderingContext2D,
 	text: string,
 	x: number,
 	y: number,
@@ -31,7 +31,7 @@ function shadowedText(
 }
 
 function roundRect(
-	ctx: NodeCanvasRenderingContext2D,
+	ctx: CanvasRenderingContext2D,
 	x: number,
 	y: number,
 	width: number,
@@ -60,7 +60,7 @@ function roundRect(
 }
 
 function roundedImage(
-	ctx: NodeCanvasRenderingContext2D,
+	ctx: CanvasRenderingContext2D,
 	image: Image,
 	x: number,
 	y: number,
@@ -75,7 +75,7 @@ function roundedImage(
 }
 
 function drawCircle(
-	ctx: NodeCanvasRenderingContext2D,
+	ctx: CanvasRenderingContext2D,
 	x: number,
 	y: number,
 	width: number,
