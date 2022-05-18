@@ -14,7 +14,7 @@ export class CommandAcceptListener extends Listener<typeof Events.CommandAccepte
 		});
 	}
 
-	public messageRun(data: CommandAcceptedPayload) {
+	public run(data: CommandAcceptedPayload) {
 		this.container.client.logger.debug(
 			`Command ${data.command.name} accepted for ${magenta(data.message.author.tag)}.`
 		);

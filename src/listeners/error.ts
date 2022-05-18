@@ -8,7 +8,7 @@ export class ErrorListener extends Listener<typeof Events.Error> {
 		});
 	}
 
-	public messageRun(error: Error) {
+	public run(error: Error) {
 		this.container.client.logger.error(error);
 	}
 }

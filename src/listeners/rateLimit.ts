@@ -10,7 +10,7 @@ export class RateLimitListener extends Listener<typeof Events.RateLimit> {
 		});
 	}
 
-	public messageRun(data: RateLimitData) {
+	public run(data: RateLimitData) {
 		const message = `The client hit a ${data.global ? 'global' : ''} rate limit on ${yellow(
 			data.method
 		)} ${yellow(data.route)}. Limit: ${yellow(data.limit)}. Timeout: ${yellow(data.timeout)}ms.`;

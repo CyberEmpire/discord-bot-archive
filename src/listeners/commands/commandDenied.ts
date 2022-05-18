@@ -15,7 +15,7 @@ export class CommandDeniedListener extends Listener<typeof Events.CommandDenied>
 		});
 	}
 
-	public messageRun(error: UserError, data: CommandDeniedPayload) {
+	public run(error: UserError, data: CommandDeniedPayload) {
 		this.container.client.logger.info(
 			`Command ${blue(data.command.name)} denied for ${magenta(
 				data.message.author.tag

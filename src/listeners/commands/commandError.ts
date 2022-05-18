@@ -57,7 +57,7 @@ export class CommandErrorListener extends Listener<typeof Events.CommandError> {
 		});
 	}
 
-	public messageRun(error: Error, data: CommandErrorPayload) {
+	public run(error: Error, data: CommandErrorPayload) {
 		if (error instanceof ArgumentError) {
 			this.argumentError(error, data);
 		} else if (error instanceof UserError) {

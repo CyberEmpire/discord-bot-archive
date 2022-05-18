@@ -8,7 +8,7 @@ export class WarnListener extends Listener<typeof Events.Warn> {
 		});
 	}
 
-	public messageRun(error: string) {
+	public run(error: string) {
 		this.container.client.logger.warn(error);
 	}
 }

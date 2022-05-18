@@ -11,7 +11,7 @@ export class ReadyListener extends Listener<typeof Events.ClientReady> {
 		});
 	}
 
-	public messageRun(client: Client) {
+	public run(client: Client) {
 		client.logger.info(`Logged in as ${magentaBright(client.user?.tag)}.`);
 		client.stores.get('commands').forEach((cmd: Command) => {
 			client.logger.info(
