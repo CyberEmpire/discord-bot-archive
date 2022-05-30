@@ -5,7 +5,7 @@ export class YoutubeCommand extends Command {
 	constructor(context: PieceContext) {
 		super(context, {
 			name: 'Youtube',
-			description: 'Follow us on scoial medias !',
+			description: 'Follow us on social medias !',
 		});
 	}
 

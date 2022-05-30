@@ -5,7 +5,7 @@ export class WebsiteCommand extends Command {
 	constructor(context: PieceContext) {
 		super(context, {
 			name: 'Website',
-			description: 'Follow us on scoial medias !',
+			description: 'Follow us on social medias !',
 		});
 	}
 

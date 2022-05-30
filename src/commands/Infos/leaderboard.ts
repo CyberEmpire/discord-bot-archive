@@ -46,7 +46,7 @@ export class LeaderboardCommand extends Command {
 		super(context, {
 			name: 'Leaderboard',
 			aliases: ['lb'],
-			description: 'Tests the latency.',
+			description: 'Displays a leaderboard of the top members.',
 		});
 	}
 

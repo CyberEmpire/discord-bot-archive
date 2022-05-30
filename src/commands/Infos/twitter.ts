@@ -5,7 +5,7 @@ export class TwitterCommand extends Command {
 	constructor(context: PieceContext) {
 		super(context, {
 			name: 'Twitter',
-			description: 'Follow us on scoial medias !',
+			description: 'Follow us on social medias !',
 		});
 	}
 

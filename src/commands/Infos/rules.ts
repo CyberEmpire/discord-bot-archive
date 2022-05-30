@@ -55,6 +55,7 @@ export class RulesCommand extends Command {
 			name: 'Rules',
 			aliases: ['rule'],
 			description: "Display the server's rules.",
+			detailedDescription: '(Number)',
 		});
 	}
 

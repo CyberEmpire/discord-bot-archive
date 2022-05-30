@@ -8,7 +8,6 @@ export class SHA384Command extends Command {
 			name: 'SHA384',
 			description: 'Hash a string with SHA384.',
 			detailedDescription: '{text}',
-			preconditions: ['GuildOnly'],
 		});
 	}
 

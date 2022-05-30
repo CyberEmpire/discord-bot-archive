@@ -11,6 +11,7 @@ export class UserInfosCommand extends Command {
 			name: 'UserInfos',
 			aliases: ['userinfo', 'memberinfo', 'memberinfos'],
 			description: 'Display details about a user.',
+			detailedDescription: '(Member)',
 			runIn: ['GUILD_ANY'],
 		});
 	}

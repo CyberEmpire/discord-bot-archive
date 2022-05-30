@@ -8,7 +8,6 @@ export class MD5Command extends Command {
 			name: 'MD5',
 			description: 'Hash a string with MD5.',
 			detailedDescription: '{text}',
-			preconditions: ['GuildOnly'],
 		});
 	}
 

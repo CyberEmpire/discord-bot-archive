@@ -8,7 +8,6 @@ export class SHA512Command extends Command {
 			name: 'SHA512',
 			description: 'Hash a string with SHA512.',
 			detailedDescription: '{text}',
-			preconditions: ['GuildOnly'],
 		});
 	}
 

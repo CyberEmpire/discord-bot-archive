@@ -8,7 +8,6 @@ export class SHA3Command extends Command {
 			name: 'SHA3',
 			description: 'Hash a string with SHA3.',
 			detailedDescription: '{text}',
-			preconditions: ['GuildOnly'],
 		});
 	}
 

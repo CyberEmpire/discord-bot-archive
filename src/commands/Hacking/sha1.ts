@@ -8,7 +8,6 @@ export class SHA1Command extends Command {
 			name: 'SHA1',
 			description: 'Hash a string with SHA1.',
 			detailedDescription: '{text}',
-			preconditions: ['GuildOnly'],
 		});
 	}
 
