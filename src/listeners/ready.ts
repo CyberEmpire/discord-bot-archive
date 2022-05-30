@@ -13,6 +13,7 @@ export class ReadyListener extends Listener<typeof Events.ClientReady> {
 
 	public run(client: Client) {
 		client.logger.info(`Logged in as ${magentaBright(client.user?.tag)}.`);
+		client.logger.info('BOT READY');
 		client.stores.get('commands').forEach((cmd: Command) => {
 			client.logger.info(
 				`Command ${blueBright(cmd.fullCategory)}/${blue(cmd.name)}: ${
