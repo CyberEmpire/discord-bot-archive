@@ -20,16 +20,14 @@ interface Configuration {
 		clientOptions: ClientOptions;
 		token: string;
 	};
+
 	guild: {
 		id: string;
 		welcomeChannel: string;
-		autoRoleChannel: string;
-		autoRoles: {
-			image: string;
-			roles: [string, string?][];
-		}[];
 	};
+
 	database: SequelizeOption;
+
 	leveling: {
 		startLevel: number;
 		startXp: number;
@@ -43,34 +41,27 @@ interface Configuration {
 			family: string;
 		}[];
 	};
+
+	autoroler: {
+		pickTimeout: number;
+		openReplyLifetime: number;
+	};
 }
 
 const config: Configuration = {
 	bot: {
 		token: env.BOT_TOKEN as string,
 		clientOptions: {
-			// Enable all intents
 			defaultPrefix: env.BOT_PREFIX ?? '!',
 			caseInsensitiveCommands: true,
 			logger: { instance: logger },
+			// Enable all intents
 			intents: Object.values(Intents.FLAGS).reduce((a, b) => a + b),
 		},
 	},
 	guild: {
 		id: env.GUILD_ID ?? '511176831391629313',
 		welcomeChannel: env.GUILD_WELCOME_CHANNEL,
-		autoRoleChannel: env.GUILD_ROLE_CHANNEL,
-		autoRoles: [
-			{
-				image:
-					'https://cdn.discordapp.com/attachments/848359075544170496/848596773735104512/Sans_titre_2.png',
-				roles: [
-					['881612002169077805'],
-					['881612002169077804'],
-					['881612002169077802', 'Description'],
-				],
-			},
-		],
 	},
 	database: {
 		host: env.DB_HOST,
@@ -94,6 +85,10 @@ const config: Configuration = {
 				family: 'Computo Monospace',
 			},
 		],
+	},
+	autoroler: {
+		pickTimeout: 360000,
+		openReplyLifetime: 60000,
 	},
 };
 
