@@ -13,7 +13,7 @@ if (loadEnv().error) {
 
 const env: any = loadEnv().parsed;
 
-const logger = new CustomLogger(LogLevel.Debug);
+const logger = new CustomLogger(env.LOG_LEVEL ?? LogLevel.Debug);
 
 interface Configuration {
 	bot: {
@@ -88,7 +88,7 @@ const config: Configuration = {
 	},
 	autoroler: {
 		pickTimeout: 360000,
-		openReplyLifetime: 60000,
+		openReplyLifetime: 30000,
 	},
 };
 
