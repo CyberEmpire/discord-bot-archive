@@ -115,7 +115,10 @@ export class AutoRolerModule extends Module {
 		const guild = await this.container.client.guilds.fetch(menu.guild);
 		const channel = await guild.channels.fetch(menu.channel);
 
-		if (!channel || !channel.isText() || !(await channel.messages.fetch(menu.id))) {
+		try {
+			if (!channel || !channel.isText()) throw Error();
+			await channel.messages.fetch(menu.id);
+		} catch {
 			await menu.destroy();
 			this.container.logger.info(`Role Menu ${menu.id}:${menu.channel}:${menu.guild} cleaned.`);
 		}
