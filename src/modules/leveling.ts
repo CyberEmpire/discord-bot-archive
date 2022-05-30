@@ -87,17 +87,6 @@ export class LevelingModule extends Module {
 		);
 	}
 
-	override async clientReady() {
-		const guild = await container.client.guilds.fetch(container.config.guild.id);
-		const members = await guild.members.fetch();
-
-		members.forEach(async (member) => {
-			const ml = await this.getMember(member);
-			ml.username = member.user.username;
-			ml.save();
-		});
-	}
-
 	override async onLoad() {
 		await MemberLevel.sync();
 		container.client.on('messageCreate', async (message) => {
