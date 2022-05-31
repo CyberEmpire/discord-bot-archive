@@ -1,6 +1,6 @@
 import { Args, Command, container, PieceContext } from '@sapphire/framework';
 import type { Message } from 'discord.js';
-import type { MemberLevel } from '../../modules/leveling';
+import type { MemberLevel } from '../../lib/MemberLevel';
 
 export class L8SFCommand extends Command {
 	constructor(context: PieceContext) {

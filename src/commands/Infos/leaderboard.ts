@@ -1,6 +1,6 @@
 import { Command, PieceContext } from '@sapphire/framework';
 import { Interaction, Message, MessageActionRow, MessageButton, MessageEmbed } from 'discord.js';
-import type { MemberLevel } from '../../modules/leveling';
+import type { MemberLevel } from '../../lib/MemberLevel';
 
 function makeLeaderboardEmbed(lb: MemberLevel[], page: number, max: number): MessageEmbed {
 	const embed = new MessageEmbed()
