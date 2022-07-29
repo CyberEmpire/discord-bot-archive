@@ -10,6 +10,7 @@ export class ChatFilterModule extends Module {
 		if (msg.content.match(inviteRegex)) {
 			await msg.delete();
 			await msg.channel.send(`${msg.author} You are not allowed to advertise on this server !`);
+			msg.member?.disableCommunicationUntil(Date.now() + 1 * 60 * 1000, 'Tried to advertise');
 			container.client.logger.warn(`${magenta(msg.author.tag)} tried to advertise !`);
 		}
 	}
