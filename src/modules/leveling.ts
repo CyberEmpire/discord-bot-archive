@@ -24,20 +24,21 @@ export class LevelingModule extends Module {
 		if (message.member && !message.author.bot) {
 			const { minXp, maxXp, xpMultiplier } = container.config.leveling;
 			const memberLevel = await this.getMember(message.member);
-			let { level, save } = memberLevel;
-			const baseLevel = level;
+			const baseLevel = memberLevel.level;
 
 			memberLevel.xp += Math.ceil(minXp + Math.random() * (maxXp - minXp)) * xpMultiplier;
 
-			await save();
+			await memberLevel.save();
 
 			// Level UP
-			if (level > baseLevel) {
-				container.logger.info(`${magenta(message.author.tag)} is now level ${yellowBright(level)}`);
+			if (memberLevel.level > baseLevel) {
+				container.logger.info(
+					`${magenta(message.author.tag)} is now level ${yellowBright(memberLevel.level)}`
+				);
 				const card = await container.modules.get('level-card').makeCard(message.member);
 
 				message.channel.send({
-					content: `GG ${message.author} ! You are now **level ${level}** !`,
+					content: `GG ${message.author} ! You are now **level ${memberLevel.level}** !`,
 					files: [card.createPNGStream()],
 				});
 			}
@@ -46,7 +47,7 @@ export class LevelingModule extends Module {
 
 	override async onLoad() {
 		await MemberLevel.sync();
-		container.client.on('messageCreate', this.onMessage);
+		container.client.on('messageCreate', this.onMessage.bind(this));
 	}
 
 	constructor(context: PieceContext) {
