@@ -1,6 +1,6 @@
 import { container, PieceContext, PieceOptions } from '@sapphire/framework';
 import { magenta } from 'chalk';
-import type { GuildMember, TextChannel } from 'discord.js';
+import type { GuildMember } from 'discord.js';
 import { Module } from '../lib/Module';
 
 const welcomeText = `
