@@ -44,6 +44,9 @@ interface Configuration {
 
 	autoroler: {
 		pickTimeout: number;
+		/**
+		 * @deprecated
+		 */
 		openReplyLifetime: number;
 	};
 }
@@ -87,8 +90,9 @@ const config: Configuration = {
 		],
 	},
 	autoroler: {
-		pickTimeout: 360000,
-		openReplyLifetime: 30000,
+		pickTimeout: 360 * 1000,
+
+		openReplyLifetime: 10 * 1000,
 	},
 };
 

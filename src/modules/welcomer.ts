@@ -60,8 +60,8 @@ export class WelcomerModule extends Module {
 
 		container.logger.info(`${magenta(member.user.tag)} joined the server.`);
 
-		if (welcomeChannel && welcomeChannel.type === 'GUILD_TEXT') {
-			(welcomeChannel as TextChannel).send(`${member} joined the server !`);
+		if (welcomeChannel && welcomeChannel.isText()) {
+			welcomeChannel.send(`${member} joined the server !`);
 		}
 
 		try {

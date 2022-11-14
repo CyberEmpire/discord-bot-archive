@@ -140,21 +140,17 @@ export class AutoRolerModule extends Module {
 
 		const dm = await interaction.user.createDM();
 
-		if (dm) {
-			await this.sendRoleMenu(menu, dm);
-			await interaction.reply(`📬 ${interaction.user} Check your DMs !`);
-		} else await interaction.reply(`⚠️ ${interaction.user} please open your DMs !`);
-
-		const reply = await interaction.fetchReply();
-		const replyMessage = await interaction.channel?.messages.fetch(reply.id);
-
-		// Delete reply after some time to avoid filling the role channel
-		if (replyMessage)
-			setTimeout(() => {
-				replyMessage.delete();
-			}, this.container.config.autoroler.openReplyLifetime);
+		this.sendRoleMenu(menu, dm)
+			.then(() => {
+				interaction.reply({ content: `📬 ${interaction.user} Check your DMs !`, ephemeral: true });
+			})
+			.catch(() => {
+				interaction.reply({
+					content: `⚠️ ${interaction.user} please open your DMs !`,
+					ephemeral: true,
+				});
+			});
 	}
-
 	override async clientReady(): Promise<void> {
 		const menus = await AutoRoleMenu.findAll();
 
